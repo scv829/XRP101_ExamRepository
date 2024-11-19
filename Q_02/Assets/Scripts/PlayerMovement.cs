@@ -28,7 +28,9 @@ public class PlayerMovement : MonoBehaviour
         direction.z = Input.GetAxisRaw("Vertical");
 
         if (direction == Vector3.zero) return;
-        
-        transform.Translate(_status.MoveSpeed * Time.deltaTime * direction);
+
+        // 간 거리가 아니라 방향이 필요하므로 가는 방향의 정규화를 한다.
+        // Debug.Log($"original : {direction.magnitude}, normalized : {direction.normalized.magnitude}");
+        transform.Translate(_status.MoveSpeed * Time.deltaTime * direction.normalized);
     }
 }
