@@ -11,7 +11,7 @@ public class StateMachine
 {
     private Dictionary<StateType, PlayerState> _stateContainer;
     public StateType CurrentType { get; private set; }
-    private PlayerState CurrentState => _stateContainer[CurrentType];
+    private PlayerState CurrentState => _stateContainer[CurrentType];   // 해당 부분에서 StackOverFlowException
 
     public StateMachine(params PlayerState[] states)
     {
