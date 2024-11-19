@@ -6,8 +6,8 @@ public class PlayerStatus : MonoBehaviour
 {
     public float MoveSpeed
     {
-        get => MoveSpeed;
-        private set => MoveSpeed = value;
+        get;
+        private set; // StackOverflowExeption 오류 부분 
     }
 
     private void Awake()
