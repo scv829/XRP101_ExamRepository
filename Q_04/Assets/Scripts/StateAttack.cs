@@ -32,7 +32,8 @@ public class StateAttack : PlayerState
 
     public override void Exit()
     {
-        Machine.ChangeState(StateType.Idle);
+        // 오류 부분 주석
+        // Machine.ChangeState(StateType.Idle);
     }
 
     private void Attack()
@@ -46,7 +47,9 @@ public class StateAttack : PlayerState
         foreach (Collider col in cols)
         {
             damagable = col.GetComponent<IDamagable>();
-            damagable.TakeHit(Controller.AttackValue);
+
+            if(damagable is not null)   // if 예외처리 추가
+                damagable.TakeHit(Controller.AttackValue);
         }
     }
 
@@ -55,7 +58,7 @@ public class StateAttack : PlayerState
         yield return _wait;
 
         Attack();
-        Exit();
+        Machine.ChangeState(StateType.Idle);    // Exit() <-> CurrentState.Exit(); 계속 호출해서 해당 부분을 상태 변경으로 수정
     }
 
 }
