@@ -27,6 +27,7 @@ public class BulletController : PooledBehaviour
         if (other.CompareTag("Player"))
         {
             other
+                .transform.parent // 충돌체가 Body이므로 부모 오브젝트로 부르기
                 .GetComponent<PlayerController>()
                 .TakeHit(_damageValue);
         }
@@ -40,7 +41,7 @@ public class BulletController : PooledBehaviour
     
     private void Fire()
     {
-        _rigidbody.AddForce(transform.forward * _force, ForceMode.Impulse);
+        _rigidbody.velocity = transform.forward * _force;   // 발사하는 속도 변경
     }
 
     private IEnumerator DeactivateRoutine()

@@ -25,6 +25,17 @@ public class TurretController : MonoBehaviour
         }
     }
 
+    // 코루틴 종료 시점이 없다
+    // 공격 범위에서 나갔을 때 공격을 멈추도록 한다
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            StopCoroutine(_coroutine);
+            _coroutine = null;
+        }
+    }
+
     private void Init()
     {
         _coroutine = null;
