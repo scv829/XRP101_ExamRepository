@@ -370,6 +370,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88626f7cfd855444bab29bd73d635518, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _hasFollowTarget: 0
+  _followTarget: {fileID: 0}
 --- !u!1001 &1356111718
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -533,6 +535,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3127339600668130624, guid: 0c905d22d069f4c62aa9afea3ae7f3d4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3127339600668130630, guid: 0c905d22d069f4c62aa9afea3ae7f3d4, type: 3}
+      propertyPath: _targetLayer.m_Bits
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3127339600668130631, guid: 0c905d22d069f4c62aa9afea3ae7f3d4, type: 3}
